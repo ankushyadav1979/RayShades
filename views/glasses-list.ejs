@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fetch using MySQL and Node.js</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./public/css/styles.css">
+  <style>
+    body {
+      background-color: #DCDCDC;
+      padding: 20px;
+    }
+
+    body {
+      font-family: "Montserrat-Bold";
+    }
+
+    h2 {
+      font-family: "Montserrat-bold";
+      color: black;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="glasses">
+    <h2 style="text-align:center;">OUR GLASSES</h2>
+    <%
+    var r=0;
+    var remainder=userData.length%4;
+    var quotient=parseInt(userData.length/4);
+    if(remainder ==0)
+    r=quotient;
+    else
+    r=quotient+1;
+    var k=0;
+    for (let i=0;i<r;i++)
+    {
+    %>
+    <div class="row card_section">
+      <%for (let j=0;(j<4)&&(4*i+j)<userData.length;j++){
+        %>
+      <div class="col-sm-3">
+        <div style="background-color: #D4155F;margin: 10px;" class="card text-white  border-danger">
+          <img src="file:///Users/ankushyadav/Desktop/WEB%20DEV/RayShades/views/images/Picture3.1.png" alt="Image1">
+          <div class="card-body">
+            <!-- NAME -->
+            <h5 style="color: #white; float: right;" class="card-title"><%=userData[4*i+j].glass_name %></h5>
+            <!-- PRICE -->
+            <h3 style="color: white;" class="card-text"><strike>
+
+                <%=userData[4*i+j].price %></strike></h3>
+            <!-- Rating -->
+            <h4 style="color: white;float: right;" class="card-text"><%=userData[4*i+j].rating %><i class="fa-solid fa-star"></i></h4>
+            <!-- Discount -->
+            <h4 style="color: white;" class="card-text"><%=userData[4*i+j].discount %> OFF</h4>
+            <h4 style="color: white;" class="card-text"><%=userData[4*i+j].price-userData[4*i+j].discount %></h4>
+
+            <!-- Category -->
+            <h5 class="card-text" style="float:right;"><%=userData[4*i+j].category_name %></h5>
+
+            <div class="card-footer bg-transparent border-success">
+              <a href="#" class="btn btn-light">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+  </div>
+  <%}%>
+
+      <script src="https://kit.fontawesome.com/7a3999d2dc.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
